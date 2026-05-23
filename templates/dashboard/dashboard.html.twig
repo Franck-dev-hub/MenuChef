@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="dashboard">
+        <h1>Dashboard</h1>
+
+        <div class="dashboard-hero">
+            <div class="dashboard-avatar">Avatar</div>
+            <div class="dashboard-hero-info">
+                <div class="dashboard-hero-name">Username</div>
+                <div class="dashboard-hero-email">Usermail</div>
+            </div>
+        </div>
+
+        <div class="dashboard-stats">
+            <div class="dashboard-top-stats">
+                <div class="dashboard-stat">
+                    <div class="dashboard-stat-name">Total recipes</div>
+                    <div class="dashboard-stat-value">4</div>
+                </div>
+
+                <div class="dashboard-stat">
+                    <div class="dashboard-stat-name">Total ingredients</div>
+                    <div class="dashboard-stat-value">10</div>
+                </div>
+
+                <div class="dashboard-stat">
+                    <div class="dashboard-stat-name">Most requested recipe</div>
+                    <div class="dashboard-stat-value">Pizza</div>
+                </div>
+
+                <div class="dashboard-stat">
+                    <div class="dashboard-stat-name">Most requested ingredient</div>
+                    <div class="dashboard-stat-value">Tomato</div>
+                </div>
+            </div>
+
+            <div class="dashboard-last-stats">
+                <div class="dashboard-stat">
+                    <div class="dashboard-stat-name">Last recipe added</div>
+                    <div class="dashboard-stat-value">Tartiflette</div>
+                </div>
+
+                <div class="dashboard-stat">
+                    <div class="dashboard-stat-name">Last ingredient added</div>
+                    <div class="dashboard-stat-value">Coriander</div>
+                </div>
+
+                <div class="dashboard-stat">
+                    <div class="dashboard-stat-name">Last recipe used</div>
+                    <div class="dashboard-stat-value">Tajin</div>
+                </div>
+
+                <div class="dashboard-stat">
+                    <div class="dashboard-stat-name">Last ingredient used</div>
+                    <div class="dashboard-stat-value">Mozzarella</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

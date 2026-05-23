@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Welcome to "Menu Chef !"</h1>
+
+    <div class="registerGroup">
+        <a class="registerBtn" href="/register">
+            <span class="registerText">Get started ></span>
+        </a>
+    </div>
+
+    <div class="menuGroup">
+        <a class="dashboardBtn" href="/dashboard">
+            <span class="DashboardTxt">Dashboard</span>
+        </a>
+
+        <a class="recipesBtn" href="/recipes">
+            <span class="recipesText">Recipes</span>
+        </a>
+
+        <a class="ingredientsBtn" href="/ingredients">
+            <span class="ingredientsText">Ingredients</span>
+        </a>
+    </div>
+
+{% endblock %}
