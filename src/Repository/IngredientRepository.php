@@ -2,36 +2,14 @@
 
 namespace App\Repository;
 
-use App\Model\Ingredient;
+use App\Entity\IngredientEntity;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
-class IngredientRepository
+class IngredientRepository extends ServiceEntityRepository
 {
-    public function findAllIngredients(): array
+    public function __construct(ManagerRegistry $registry)
     {
-        return [
-            new Ingredient(
-                1,
-                'Tomato'
-            ),
-            new Ingredient(
-                2,
-                'Mozzarella'
-            ),
-            new Ingredient(
-                3,
-                'Leek'
-            ),
-        ];
-    }
-
-    public function findIngredients(int $id): ?Ingredient
-    {
-        foreach ($this->findAllIngredients() as $recipe) {
-            if ($recipe->getId() === $id) {
-                return $recipe;
-            }
-        }
-
-        return null;
+        parent::__construct($registry, IngredientEntity::class);
     }
 }

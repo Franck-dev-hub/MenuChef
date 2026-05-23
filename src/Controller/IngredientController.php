@@ -9,18 +9,18 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class IngredientController extends AbstractController
 {
-    #[Route('/ingredients', name: 'ingredient', methods: ['GET'])]
-    public function Ingredient(IngredientRepository $ingredientRepository): Response
+    #[Route('/ingredients', name: 'ingredients', methods: ['GET', 'POST'])]
+    public function Ingredients(IngredientRepository $ingredientRepository): Response
     {
-        $ingredients = $ingredientRepository->findAllIngredients();
+        $ingredient = $ingredientRepository->findBy([], ['id' => 'ASC']);
 
-        if (!$ingredients) {
-            throw $this->createNotFoundException('Ingredient not found');
+        if (!$ingredient) {
+            $ingredient = [];
         }
 
         return $this->render('ingredient/ingredient.html.twig', [
-            'page_title' => 'Ingredient',
-            'ingredients' => $ingredients,
+            'page_title' => 'Ingredients',
+            'ingredients' => $ingredient,
         ]);
     }
 }

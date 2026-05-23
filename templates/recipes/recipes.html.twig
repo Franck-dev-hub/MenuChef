@@ -1,20 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Recipes :</h1>
+    <h1>Add new recipe</h1>
+
+    <div class="recipe-form">
+        {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.ingredients) }}
+        <button type="submit">Add recipe</button>
+        {{ form_end(form) }}
+    </div>
+
+    <hr>
+
+    <h1>Recipes</h1>
 
     <table>
         <thead>
         <tr>
-            <th>ID</th>
             <th>Name</th>
+            <th>Ingredients</th>
         </tr>
         </thead>
+        <tbody>
         {% for recipe in recipes %}
             <tr>
-                <td>{{ recipe.id }}</td>
-                <td>{{ recipe.name }}</td>
+                <td style="border: 1px solid black;">{{ recipe.name }}</td>
+                <td style="border: 1px solid black;">
+                    {% for ingredient in recipe.ingredients %}
+                        {{ ingredient }}
+                    {% else %}
+                        No ingredients
+                    {% endfor %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>No recipe found</td>
             </tr>
         {% endfor %}
+        </tbody>
     </table>
 {% endblock %}

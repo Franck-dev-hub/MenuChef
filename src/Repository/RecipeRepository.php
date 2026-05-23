@@ -2,36 +2,14 @@
 
 namespace App\Repository;
 
-use App\Model\Recipe;
+use App\Entity\RecipesEntity;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
-class RecipeRepository
+class RecipeRepository extends ServiceEntityRepository
 {
-    public function findAllRecipes(): array
+    public function __construct(ManagerRegistry $registry)
     {
-        return [
-            new Recipe(
-                1,
-                'Tartiflette'
-            ),
-            new Recipe(
-                2,
-                'Pizza'
-            ),
-            new Recipe(
-                3,
-                'Salade de riz'
-            ),
-        ];
-    }
-
-    public function findRecipes(int $id): ?Recipe
-    {
-        foreach ($this->findAllRecipes() as $recipe) {
-            if ($recipe->getId() === $id) {
-                return $recipe;
-            }
-        }
-
-        return null;
+        parent::__construct($registry, RecipesEntity::class);
     }
 }
