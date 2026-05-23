@@ -38,3 +38,7 @@ uploads/
 
 # Secrets
 config/secrets/prod/*.private.php
+
+# php-cs-fixer/shim
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
