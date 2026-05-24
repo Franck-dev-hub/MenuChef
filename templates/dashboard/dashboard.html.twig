@@ -7,8 +7,8 @@
         <div class="dashboard-hero">
             <div class="dashboard-avatar">Avatar</div>
             <div class="dashboard-hero-info">
-                <div class="dashboard-hero-name">Username</div>
-                <div class="dashboard-hero-email">Usermail</div>
+                <div class="dashboard-hero-name">User : {{ app.user.email|split('@')|first }}</div>
+                <div class="dashboard-hero-email">Email : {{ app.user.email }}</div>
             </div>
         </div>
 

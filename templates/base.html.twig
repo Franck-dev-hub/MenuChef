@@ -23,7 +23,11 @@
     </head>
 
     <header>{{ include('header/header.html.twig') }}</header>
-    <aside>{{ include('menu/aside.html.twig') }}</aside>
+
+    {% if app.user %}
+        <aside>{{ include('menu/aside.html.twig') }}</aside>
+    {% endif %}
+
     <body>{% block body %}{% endblock %}</body>
     <footer>{{ include('footer/footer.html.twig') }}</footer>
 </html>
