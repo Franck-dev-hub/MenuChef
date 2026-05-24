@@ -10,9 +10,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class RecipesController extends AbstractController
 {
+    #[IsGranted('ROLE_USER')]
     #[Route('/recipes', name: 'recipes', methods: ['GET', 'POST'])]
     public function Recipes(EntityManagerInterface $entityManager, Request $request, RecipeRepository $recipeRepository): Response
     {
