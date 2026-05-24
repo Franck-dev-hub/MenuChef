@@ -2,28 +2,68 @@
 
 {% block title %}Register{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/auth/register.css") }}">
+{% endblock %}
+
 {% block body %}
-    {% for flash_error in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-    {% endfor %}
+    <div class="register-container">
+        <form method="post">
+            {% for flash_error in app.flashes('verify_email_error') %}
+                <div class="error" role="alert">{{ flash_error }}</div>
+            {% endfor %}
 
-    <h1>Register</h1>
+            {{ form_errors(registrationForm) }}
 
-    {{ form_errors(registrationForm) }}
+            <h1>Register</h1>
+            <input
+                type="email"
+                value="{{ registrationForm.email.vars.value }}"
+                name="registration[email]"
+                id="email"
+                placeholder="Enter your email"
+                class="form-control"
+                autocomplete="email"
+                required autofocus>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+            <input
+                type="password"
+                name="registration[plainPassword][first]"
+                id="password"
+                placeholder="Enter your password"
+                class="form-control"
+                autocomplete="new-password"
+                required>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
-    <div class="login-register">
-        Already have an account ?
-        <a href="/login" data-discover="true">
-            Login here
-        </a>
+            <input
+                type="password"
+                name="registration[plainPassword][second]"
+                id="password_confirm"
+                placeholder="Confirm your password"
+                class="form-control"
+                autocomplete="new-password"
+                required>
+
+            <div class="register-remember">
+                <div class="register-remember-box">
+                    <input type="checkbox" name="registration[agreeTerms]" id="agreeTerms" {{ registrationForm.agreeTerms.vars.value ? 'checked' : '' }}>
+                    <label for="agreeTerms">{{ registrationForm.agreeTerms.vars.label }}
+                        I agree to the
+                        <a class="terms" href="/terms">terms</a>
+                    </label>
+                </div>
+            </div>
+
+            <button class="registerBtn" type="submit">
+                Register
+            </button>
+
+            <div class="login-register">
+                Already have an account ?
+                <a href="/login" data-discover="true">
+                    Login here
+                </a>
+            </div>
+        </form>
     </div>
 {% endblock %}

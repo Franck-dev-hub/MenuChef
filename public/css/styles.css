@@ -1,3 +1,39 @@
+:root {
+    --primary-color: #66ea90;
+    --secondary-color: #66ead2;
+
+    --text-muted: #71717B;
+}
+
+.dark {
+    --primary-color: #27b761;
+    --secondary-color: #24b7a1;
+
+    --text-muted: #71717B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
 body {
-    margin: 64px 0 0 0;
+    min-height: 100vh;
+    padding: 64px 0 60px 0;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }

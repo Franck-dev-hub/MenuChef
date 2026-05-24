@@ -1,23 +1,23 @@
 <link rel="stylesheet" href="{{ asset("css/header.css") }}">
 
-{% set theme = app.request.cookies.get('theme', 'light') %}
-
-<div class="header {{ theme }}">
-    <div class="header-container">
-        <div class="header-container-left">
-            <a class="header-logo" href="/">
-                <img class="header-logoImg" src="{{ asset('images/logo/logo.png') }}" alt="Logo">
-                <div class="header-logoText">
-                    <div class="header-logoMenu">Menu</div>
-                    <div class="header-logoChef {{ theme }}">Chef !</div>
-                </div>
-            </a>
+<header>
+    <div class="header {{ theme }}">
+        <div class="header-container">
+            <div class="header-container-left">
+                <a class="header-logo" href="/">
+                    <img class="header-logoImg" src="{{ asset('images/logo/logo.png') }}" alt="Logo">
+                    <div class="header-logoText">
+                        <div class="header-logoMenu">Menu</div>
+                        <div class="header-logoChef {{ theme }}">Chef !</div>
+                    </div>
+                </a>
+            </div>
+            <div class="header-container-right">
+                <a href="{{ path('toggleTheme') }}" class="header-profileBtn {{ theme }}">Toggle</a>
+                {%  if app.user %}
+                    <a class="header-profileBtn {{ theme }}" href="/" title="Settings">User</a>
+                {% endif %}
+            </div>
         </div>
-        <div class="header-container-right">
-            <a href="{{ path('toggleTheme') }}" class="header-profileBtn {{ theme }}">Toggle</a>
-            {%  if app.user %}
-                <a class="header-profileBtn {{ theme }}" href="/" title="Settings">User</a>
-            {% endif %}
-        </div>
-    </div>
 </div>
+</header>

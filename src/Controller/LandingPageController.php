@@ -15,7 +15,7 @@ class LandingPageController extends AbstractController
             return $this->redirect('/dashboard');
         }
 
-        return $this->render('landingpage/landingpage.html.twig', [
+        return $this->render('landingPage/landingPage.html.twig', [
             'page_title' => 'Menu Chef !',
         ]);
     }
