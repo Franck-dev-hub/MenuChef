@@ -1,11 +1,21 @@
-<div class="header">
+<link rel="stylesheet" href="{{ asset("css/header.css") }}">
+
+{% set theme = app.request.cookies.get('theme', 'light') %}
+
+<div class="header {{ theme }}">
     <div class="header-container">
         <div class="header-container-left">
-            <div class="header-logo">Logo</div>
-            <div class="header-logo-text">Menu Chef !</div>
+            <a class="header-logo" href="/">
+                <img class="header-logoImg" src="{{ asset('images/logo/logo.png') }}" alt="Logo">
+                <div class="header-logoText">
+                    <div class="header-logoMenu">Menu</div>
+                    <div class="header-logoChef {{ theme }}">Chef !</div>
+                </div>
+            </a>
         </div>
         <div class="header-container-right">
-            <div class="header-user">User</div>
+            <a href="{{ path('toggleTheme') }}" class="header-profileBtn {{ theme }}">Toggle</a>
+            <a class="header-profileBtn {{ theme }}" href="/" title="Settings">User</a>
         </div>
     </div>
 </div>
