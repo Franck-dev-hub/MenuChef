@@ -6,19 +6,20 @@ use App\Repository\RecipeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: RecipeRepository::class)]
+#[UniqueEntity(fields: ['name'], message: 'This recipe already exist')]
 class RecipesEntity
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Id, ORM\GeneratedValue, ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: IngredientEntity::class, cascade: ['persist'])]
+    #[ORM\ManyToMany(targetEntity: IngredientEntity::class, inversedBy: 'recipes', cascade: ['persist'])]
+    #[ORM\JoinTable(name: 'recipes_ingredients')]
     private Collection $ingredients;
 
     public function __construct()
@@ -48,10 +49,27 @@ class RecipesEntity
         return $this->ingredients;
     }
 
+    public function addIngredient(IngredientEntity $ingredient): self
+    {
+        if (!$this->ingredients->contains($ingredient)) {
+            $this->ingredients->add($ingredient);
+        }
+
+        return $this;
+    }
+
+    public function removeIngredient(IngredientEntity $ingredient): self
+    {
+        $this->ingredients->removeElement($ingredient);
+
+        return $this;
+    }
+
     public function setIngredients(iterable $ingredients): self
     {
-        if (is_array($ingredients)) {
-            $this->ingredients = new ArrayCollection($ingredients);
+        $this->ingredients->clear();
+        foreach ($ingredients as $ingredient) {
+            $this->addIngredient($ingredient);
         }
 
         return $this;

@@ -8,12 +8,13 @@
         <tr>
             <th>Name</th>
             <th>Quantity</th>
-            <th>Use</th>
+            <th>Used-in</th>
         </tr>
         </thead>
         {% for ingredient in ingredients %}
             <tr>
                 <td>{{ ingredient.name }}</td>
+                <td>{{ ingredient.recipes|length }}</td>
             </tr>
         {% endfor %}
     </table>

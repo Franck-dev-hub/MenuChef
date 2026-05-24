@@ -24,7 +24,6 @@ class RecipeType extends AbstractType
             ->add('name')
             ->add('ingredients', TextType::class, [
                 'required' => false,
-                'by_reference' => false,
             ])
         ;
 
@@ -48,7 +47,10 @@ class RecipeType extends AbstractType
                 if (empty($ingredientsAsString)) {
                     return [];
                 }
-                $names = array_map('trim', explode(',', $ingredientsAsString));
+                $names = array_filter(
+                    array_map('trim', preg_split('/[\s,]+/', $ingredientsAsString)),
+                    fn ($name) => '' !== $name
+                );
                 $ingredientsEntities = [];
 
                 $repository = $this->entityManager->getRepository(IngredientEntity::class);

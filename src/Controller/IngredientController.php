@@ -12,15 +12,15 @@ class IngredientController extends AbstractController
     #[Route('/ingredients', name: 'ingredients', methods: ['GET', 'POST'])]
     public function Ingredients(IngredientRepository $ingredientRepository): Response
     {
-        $ingredient = $ingredientRepository->findBy([], ['id' => 'ASC']);
+        $ingredients = $ingredientRepository->findBy([], ['id' => 'ASC']);
 
-        if (!$ingredient) {
-            $ingredient = [];
+        if (!$ingredients) {
+            $ingredients = [];
         }
 
         return $this->render('ingredient/ingredient.html.twig', [
             'page_title' => 'Ingredients',
-            'ingredients' => $ingredient,
+            'ingredients' => $ingredients,
         ]);
     }
 }
