@@ -44,12 +44,14 @@
                 autocomplete="new-password"
                 required>
 
-            <div class="register-remember">
-                <div class="register-remember-box">
-                    <input type="checkbox" name="registration[agreeTerms]" id="agreeTerms" {{ registrationForm.agreeTerms.vars.value ? 'checked' : '' }}>
+            {{ form_widget(registrationForm._token) }}
+
+            <div class="register-terms">
+                <div class="register-terms-box">
+                    <input type="checkbox" name="registration[agreeTerms]" id="agreeTerms" {{ registrationForm.agreeTerms.vars.value }}>
                     <label for="agreeTerms">{{ registrationForm.agreeTerms.vars.label }}
                         I agree to the
-                        <a class="terms" href="/terms">terms</a>
+                        <a class="terms" href="">terms</a>
                     </label>
                 </div>
             </div>

@@ -28,7 +28,15 @@ form h1 {
     color: #000000;
 }
 
-.error {
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.error,
+.form-error-message {
     color: var(--error-text);
     font-size: 0.875rem;
     margin: 0;
@@ -49,6 +57,8 @@ form h1 {
     color: #1a1a1a;
     outline: none;
     transition: border-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .form-control:focus {
@@ -80,7 +90,7 @@ form h1 {
     cursor: not-allowed;
 }
 
-.register-remember {
+.register-terms {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -89,7 +99,7 @@ form h1 {
     justify-content: space-between;
 }
 
-.register-remember a {
+.register-terms a {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
@@ -100,15 +110,17 @@ input[type="checkbox"] {
     width: 18px;
     height: 18px;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
-.register-remember-box {
+.register-terms-box {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
-label[for="agreeTerms"] {
+.register-terms-box label {
     color: var(--text-muted);
 }
 
