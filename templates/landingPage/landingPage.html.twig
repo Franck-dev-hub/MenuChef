@@ -1,12 +1,27 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("css/landingPage.css") }}">
+{% endblock %}
+
 {% block body %}
-    <div class="landing-container {{ theme }}">
-        <h1>Welcome to "Menu Chef !"</h1>
+    <div class="landing-container">
+
+        <img class="landing-logoImg" src="{{ asset('images/logo/logo.png') }}" alt="Logo">
+
+        <h1 class="title">Cook smart,<br>
+            <span class="gradientText">just think recipes.</span>
+        </h1>
+
+        <p class="description">
+            The shopping list that is done by itself.
+        </p>
+
 
         <div class="registerGroup">
             <a class="registerBtn" href="/register">
-                <span class="registerText">Get started ></span>
+                <span class="registerText-left">Get started</span>
+                <span class="registerText-right"> ></span>
             </a>
         </div>
     </div>

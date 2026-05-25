@@ -1,0 +1,73 @@
+.landing-container {
+    width: 100%;
+    max-width: 860px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+    justify-content: center;
+    padding: 24px 16px;
+    flex: 1;
+}
+
+.landing-logoImg {
+    width: 120px;
+    height: auto;
+}
+
+.title {
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.gradientText {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.description {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    opacity: 0.8;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+.registerGroup {
+    display: flex;
+    justify-content: center;
+}
+
+.registerBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.registerBtn:hover {
+    background-color: var(--primary-color-hover);
+}
+
+.registerText-left {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.registerText-right {
+}

@@ -1,15 +1,67 @@
+/* ===== LIGHT MODE ===== */
 :root {
+    /* Primary */
     --primary-color: #66ea90;
-    --secondary-color: #66ead2;
+    --primary-color-hover: #45c470;
 
-    --text-muted: #71717B;
+    /* Secondary */
+    --secondary-color: #f9a825;
+    --secondary-color-hover: #d4880e;
+
+    /* Backgrounds */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f3f4f6;
+    --bg-page: #f5f7f5;
+    --bg-surface: #ffffff;
+
+    /* Text */
+    --text-primary: #111a14;
+    --text-secondary: #4a5c4e;
+    --text-muted: #71717b;
+
+    /* Borders */
+    --border-default: rgba(0,0,0,0.1);
+    --border-strong: rgba(0,0,0,0.2);
+    --border-focus: #66ea90;
+
+    /* Semantic */
+    --success-bg: #d6f9e3;
+    --success-border: #45c470;
+    --success-text: #0d3a1e;
+    --warning-bg: #fef3c7;
+    --warning-border: #f9a825;
+    --warning-text: #3d2600;
+    --error-bg: #fee2e2;
+    --error-border: #f87171;
+    --error-text: #7f1d1d;
+    --info-bg: #e0f2fe;
+    --info-border: #38bdf8;
+    --info-text: #0c4a6e;
 }
 
+/* ===== DARK MODE ===== */
 .dark {
-    --primary-color: #27b761;
-    --secondary-color: #24b7a1;
+    /* Primary */
+    --primary-light: #0d3a1e;
+    --primary-dark: #b5f5cd;
+    --primary-text: #0d3a1e;
 
-    --text-muted: #71717B;
+    /* Secondary */
+    --secondary-light: #3d2600;
+    --secondary-dark: #fcd97a;
+    --secondary-text: #3d2600;
+
+    /* Backgrounds */
+    --bg-page: #191c1a;
+
+    /* Text */
+    --text-primary: #e8f5ec;
+    --text-secondary: #9ab8a0;
+
+    /* Borders */
+    --border-default: rgba(255,255,255,0.1);
+    --border-strong: rgba(255,255,255,0.2);
+    --border-focus: #66ea90;
 }
 
 * {
@@ -27,7 +79,7 @@ body {
     padding: 64px 0 60px 0;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: var(--bg-page);
     font-family: 'Segoe UI', 'Roboto', sans-serif;
 }
 

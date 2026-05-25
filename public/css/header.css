@@ -17,7 +17,7 @@
 }
 
 .header.dark {
-    background: rgba(17, 19, 24, 0.85);
+    background: #111318d9;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -30,7 +30,6 @@
 }
 
 .header-container-left {
-    color: #ffffff;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -64,15 +63,12 @@
 }
 
 .header-logoMenu {
-    color: #667EEA;
+    color: var(--primary-color);
+
 }
 
-.header-logoChef.light {
-    color: #111318;
-}
-
-.header-logoChef.dark {
-    color: #ffffff;
+.header-logoChef {
+    color: var(--text-primary);
 }
 
 .header-container-right {}
@@ -94,10 +90,6 @@
     opacity: 0.7;
 }
 
-.header-profileBtn.light {
-    color: #111318;
-}
-
-.header-profileBtn.dark {
-    color: #ffffff;
+.header-profileBtn {
+    color: var(--text-primary);
 }
